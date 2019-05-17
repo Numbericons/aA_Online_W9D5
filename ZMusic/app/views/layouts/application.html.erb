@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <html style="
+        background: antiquewhite;
+    ">
+    <h1>! Zmusic Database !</h1>
+    <% if logged_in? %>
+      Welcome back <%= current_user.email %>!
+      <!-- <a href="<%#= %>">Logout</a> -->
+    <% end %>
     <%= yield %>
   </body>
 </html>

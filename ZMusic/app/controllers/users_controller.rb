@@ -15,6 +15,16 @@ class UsersController < ApplicationController
         end
     end
 
+    def show
+        @user = User.find_by(id: params[:id])
+        if @user
+            render :show
+        else
+            flash[:errors] = "Invalid user path"
+            redirect_to users_url
+        end
+    end
+
     private
     def user_params
         params.require(:user).permit(:email, :password)
